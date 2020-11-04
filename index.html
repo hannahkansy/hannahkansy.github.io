@@ -1,0 +1,161 @@
+<!-- aframe documentation: https://aframe.io/docs/1.0.0/introduction/ -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>aframe empty template</title>
+	<script src="./libraries/aframe-1.0.4.min.js"></script>
+	<script src="./libraries/aframe_ply_pointcloud_loader.js"></script>
+</head>
+
+<body>
+		<a-scene vr-mode-ui="enabled: false"
+						 loading-screen="enabled: false"
+						 a-scene background="color: #884ac5">
+
+
+			<!-- pre-load your assets(models, videos, images etc.) here -->
+			<a-assets>
+				<a-asset-item id="rock-mesh" src="./models/rock-mesh.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="banana" scale="12 12 12" position="30.54914 0 -6" src="./models/banana.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="fabric" position="69.62713 -1.00173 -6" src="./models/fabric.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="water" src="./models/water.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="band" src="./models/band.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="table" src="./models/table.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="ikosaeder" src="./models/ikosaeder.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="icecream" scale="2 2 2" position="-6.47251 11.76932 18.18554" rotation="-44.35 1.95 -83.6" src="./models/icecream.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="rock-ply" src="./models/rock-pointcloud.ply" response-type="arraybuffer"></a-asset-item>
+    		<video id="rocks-mp4" muted autoplay loop="true" src="./video/rocks.mp4"></video>
+				<video id="waves-mp4" muted autoplay loop="true" src="./video/waves.mp4"></video>
+				<audio id="song-mp3" src="./audio/song.mp3" preload="auto"></audio>
+			</a-assets>
+
+			<!-- Scene camera -->
+
+	<a-sound src="./sound/song.mp3"
+									 autoplay="true"
+									 position="0 2 5">
+					</a-sound>
+
+
+
+
+			<a-entity camera look-controls position="0 1.6 0" wasd-controls="acceleration:1200"></a-entity>
+
+			<!-- Box primitive -->
+			<a-octahedron color="yellow"
+						 depth="2"
+						 height="2"
+						 width="2"
+						 position="10 2 4"
+						 rotation="0 45 0">
+					 </a-octahedron>
+
+			<!-- Text entity -->
+			<a-text position="30 10 -6"
+								width="20"
+								font="./kalpurush-msdf.json"
+								font-image="./kalpurush-msdf.png"
+								negate="false"
+								color="white"
+								value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.">
+			</a-text>
+
+
+			<!-- Video primitive -->
+  		<a-video src="#rocks-mp4"
+							 width="8"
+							 height="4.5"
+							 position="14 10 -6">
+			</a-video>
+
+			<a-video src="#waves-mp4"
+							 width="8"
+							 height="4.5"
+							 position="60.05784 10.08739 -16.7414"
+							 scale= "2.6 2.6 2.6">
+			</a-video>
+
+			<!-- PLY point cloud entity -->
+			<a-entity ply-pointcloud-model="src: #rock-ply;
+																			pointSize: 0.02"
+								position="26 0 -6"
+								rotation="0 0 -5"
+								scale="0.75 0.75 0.75">
+			</a-entity>
+
+
+			<!-- GLB mesh entity -->
+			<a-entity id="banana"
+								gltf-model="#banana"
+								position="30 0 -6"
+								scale="10	10 10">
+				</a-entity>
+
+				<a-entity id="rock"
+									gltf-model="#rock-mesh"
+									position="10 -0.60818 -6"
+									scale="0.75 0.75 0.75">
+					</a-entity>
+
+					<a-entity id="unique_band"
+										gltf-model="#band"
+										position="75.14663 4.33826 -14.25965"
+										scale="10 10 10">
+						</a-entity>
+
+					<a-entity id="unique_ikosaeder"
+										gltf-model="#ikosaeder"
+										position="78.13226 -1.25635 -15.35117"
+										scale="10 10 10">
+						</a-entity>
+
+					<a-entity id="fabric"
+										gltf-model="#fabric"
+										position="20 0 -6"
+										scale="20 20 20">
+						</a-entity>
+
+						<a-entity id="fabric"
+											gltf-model="#fabric"
+											position="70 0 -6"
+											scale="20 20 20">
+							</a-entity>
+
+
+
+						<a-entity id="unique_water"
+											gltf-model="#water"
+											position="17.66671 13.15209 -12.31337"
+											scale="60 60 50">
+							</a-entity>
+
+							<a-entity id="unique_table"
+												gltf-model="#table"
+												position="18.71984 -0.10811 -12.42994"
+												scale="10 10 10">
+								</a-entity>
+
+						<a-entity id="unique_icecream"
+											gltf-model="#icecream"
+											position="75.05784 11.08739 -5.7414"
+											scale="2 2 2"
+											color= black
+											rotation="-41.6 4.37 -82.09">
+							</a-entity>
+
+						<//a-entity light="type: ambient; color: white">
+							<///a-entity>
+
+				<///a-entity light="type: point; intensity: 1.5;"
+										position: "60 15 -6">
+				<///a-entity>
+
+
+
+		</a-scene>
+</body>
+</html>
